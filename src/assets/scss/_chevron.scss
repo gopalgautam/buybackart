@@ -1,0 +1,55 @@
+@mixin chevron {
+  border-style: solid;
+  border-color: $black;
+  width: 9px;
+  height: 9px;
+  transform: rotate(45deg);
+  display: inline-block;
+  position: relative;
+}
+
+@mixin chevron-top {
+  @include chevron;
+  border-width: 1px 0 0 1px;
+}
+
+@mixin chevron-right {
+  @include chevron;
+  border-width: 1px 1px 0 0;
+}
+
+@mixin chevron-bottom {
+  @include chevron;
+  border-width: 0 1px 1px 0;
+}
+
+@mixin chevron-left {
+  @include chevron;
+  border-width: 0 0 1px 1px;
+}
+
+.sd-chevron {
+  &-top {
+    @include chevron-top;
+  }
+
+  &-right {
+    @include chevron-right;
+  }
+
+  &-bottom {
+    @include chevron-bottom;
+  }
+
+  &-left {
+    @include chevron-left;
+  }
+}
+
+.sd-chevron {
+  &-right-after {
+    &::after {
+      @include chevron-right;
+    }
+  }
+}

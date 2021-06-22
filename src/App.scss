@@ -1,0 +1,30 @@
+@import "bootstrap/scss/bootstrap";
+@import "assets/scss/variables";
+@import "assets/scss/fonts";
+@import "assets/scss/normalize";
+@import "assets/scss/typography";
+@import "assets/scss/chevron";
+@import "assets/scss/style";
+
+// navbar link
+.navbar {
+  padding: 0;
+}
+.navbar-expand-sm .navbar-nav {
+  width: 100%;
+}
+.navbar-expand-sm .navbar-nav .nav-item{
+  flex: 1 1 100%;
+  text-align: center;
+}
+.navbar-expand-sm .navbar-nav .nav-link {
+  padding: 1rem !important;
+}
+.dropdown-toggle {
+  padding-right: 25px !important;
+}
+.dropdown-toggle::after {
+  @include chevron-bottom;
+  width: 6px;
+  height: 6px;
+}
