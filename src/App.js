@@ -1,4 +1,4 @@
-import { Link } from "react"
+import { Link, useState } from "react";
 import './App.scss';
 import logo from './assets/img/buybackart_logo.png';
 import offer from './assets/img/offer.png'
@@ -26,35 +26,73 @@ import assuredSafety from "./assets/img/wcu_4.png";
 import fastServices from "./assets/img/quick.png";
 import awesomePrice from "./assets/img/price.png";
 
-import socialIcon from "./assets/img/social-icon.jpg";
-import excitinOffer from "./assets/img/exciting-offer.jpg";
-import partner from "./assets/img/partner.png";
-import testimonial from "./assets/img/testimonial.jpg";
-
 // fa icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebookF, faTwitter, faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
+import { faFacebookF, faTwitter, faInstagram, faYoutube } from '@fortawesome/free-brands-svg-icons'
+import { faUser, faMapMarker, faSearch } from '@fortawesome/free-solid-svg-icons';
+
+// carousel images
+import carouselbg2 from "./assets/img/bg_2.jpg";
+import iphone11Red from "./assets/img/iphone11-red.png";
+import iphone11Pro1 from "./assets/img/iphone11pro_1.jpeg";
+import iphone11ProMax from "./assets/img/iphone11promax.png";
+import iphoneXR_1 from "./assets/img/iphoneXR_1.png";
+import iphoneXS from "./assets/img/iphoneXS.png";
+import iphoneX from "./assets/img/iphoneX.png";
+
+// partner image
+import croma from "./assets/img/Croma_Logo.png";
+import imagine from "./assets/img/imagine.png";
+import multiplier from "./assets/img/multiplier.png";
+
+// testimonial image
+import shivamGarg from "./assets/img/ShivamGarg.png";
+import rahul from "./assets/img/rahul.png";
+import user from "./assets/img/user.png";
+import harishSingh from "./assets/img/HarishSingh.png";
+import gauravJha from "./assets/img/gaurav_jha.jpg";
+
+
+import 'jquery';
+import '@popperjs/core'; // Edit here
+import 'bootstrap/dist/js/bootstrap.bundle';
+
+import Carousel from 'react-bootstrap/Carousel';
 
 
 function App() {
+  const [index, setIndex] = useState(0);
+
+  const handleSelect = (selectedIndex, e) => {
+    setIndex(selectedIndex);
+  };
+
   return (
     <>
       <header>
         <div class="container-fluid">
-          <div class="row py-2 px-lg-5">
-            <div class="col-md-3 col-5 my-auto">
+          <div class="d-sm-flex py-2 px-lg-5">
+            <div class="my-auto">
               <a href="https://buybackart.com/">
                 <img src={logo} class="img-fluid" alt="logo" width="120" />
               </a>
             </div>
-            <div class="col-md-9 col-7 my-auto">
-              <ul class="justify-content-end d-flex align-items-center mb-0">
-                <li class="align-items-center d-flex px-5">
-                  <i class="fa fa-map-marker fa-1x pr-2" aria-hidden="true"></i>
+            <div class="px-5 w-100">
+              <div class="input-group searchbar">
+                <label class="input-group-text" for="inputGroupFile01">
+                  <FontAwesomeIcon alt="Linkedin" title="Youtube" icon={faSearch} />
+                </label>
+                <input type="text" class="form-control" placeholder="Start typing..." />
+              </div>
+            </div>
+            <div class="my-auto">
+              <ul class="justify-content-end d-flex align-items-center mb-0 top_links">
+                <li class="align-items-center d-flex pe-5">
+                  <FontAwesomeIcon alt="Twitter" title="Twitter" icon={faMapMarker} />
                   <a href="https://buybackart.com/login_other" class="text-black">Delhi</a>
                 </li>
                 <li class="align-items-center d-flex pl-5">
-                  <i class="fa fa-user fa-1x pr-2" aria-hidden="true"></i>
+                  <FontAwesomeIcon alt="Twitter" title="Twitter" icon={faUser} />
                   <a href="https://buybackart.com/login_other" class="text-black">Login</a>
                 </li>
               </ul>
@@ -65,12 +103,12 @@ function App() {
         <div class="container-fluid">
           <div class="row px-lg-5">
             <nav class="navbar navbar-expand-sm main_navbar">
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-list-2"
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-list"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon">
                   <i class="fa fa-bars text-dark" aria-hidden="true"></i></span>
               </button>
-              <div class="collapse navbar-collapse" id="navbar-list-2">
+              <div class="collapse navbar-collapse" id="navbar-list">
                 <ul class="navbar-nav">
                   <li class="nav-item active">
                     <div class="dropdown">
@@ -92,22 +130,22 @@ function App() {
                   <li class="nav-item">
                     <a class="nav-link text-capitalize"
                       href="https://www.store.buybackart.com/index.php?route=product/category&amp;path=99" target="_blank">Buy
-                Refurbish Phone</a>
+                      Refurbish Phone</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link text-capitalize"
                       href="https://www.store.buybackart.com/index.php?route=product/category&amp;path=64" target="_blank">Buy
-                Accessories</a>
+                      Accessories</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link text-capitalize"
                       href="https://www.store.buybackart.com/index.php?route=product/category&amp;path=24" target="_blank">Buy
-                New Smartphones</a>
+                      New Smartphones</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link text-capitalize" href="https://buybackart.com/offers">
                       <img src={offer} class="img-fluid" alt="offer" width="21" height="21" /> Offers
-                  </a>
+                    </a>
                   </li>
                 </ul>
               </div>
@@ -186,7 +224,7 @@ function App() {
             <div class="d-flex flex-column justify-content-center selling-simpler-box__content">
               <h5 class="text-capitalize"><a href="#" class="hvr-pulse">Evaluate price</a></h5>
               <p class="text-muted">Choose your device and tell us about its present condition and our advanced AI
-          technology will find the correct price for you </p>
+                technology will find the correct price for you </p>
             </div>
           </div>
           <div class="col-md-4 col-12 selling-simpler-box">
@@ -205,7 +243,7 @@ function App() {
           </div>
         </div>
       </section>
-
+      {/* why buybackart */}
       <section class="why-buybackart">
         <section class="container-fluid my-3">
           <div class="row px-lg-5">
@@ -231,7 +269,7 @@ function App() {
                 <div class="ml-3 d-flex flex-column justify-content-center">
                   <h5 class="text-capitalize">Expert Of Gadget</h5>
                   <p class="text-muted">we trained professional to guide you and solve your device problem in fastest way
-              </p>
+                  </p>
                 </div>
               </div>
             </div>
@@ -254,7 +292,7 @@ function App() {
                 <div class="ml-3 d-flex flex-column justify-content-center">
                   <h5 class="text-capitalize">Assured Safety</h5>
                   <p class="text-muted">At the time of buyback and service, we take of your personal data with safest hand
-              </p>
+                  </p>
                 </div>
               </div>
             </div>
@@ -283,315 +321,159 @@ function App() {
           </div>
         </section>
       </section>
+      {/* exciting offers */}
       <section class="container-fluid my-5" id="Exciting_offers">
         <div class="row px-lg-5">
           <h2 class="main_heading">Exciting offers</h2>
         </div>
         <div class="row px-lg-5">
-          <img src={excitinOffer} alt="Exciting Offer" />
-          {/* <div id="offers_carousel" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-              <li data-target="#offers_carousel" data-slide-to="0" class="bg-dark active"></li>
-              <li data-target="#offers_carousel" data-slide-to="1" class="bg-dark"></li>
-            </ol>
-            <div class="carousel-inner py-3">
-              <div class="carousel-item active">
-                <div class="d-flex">
-                  <div class="card shadow-sm mr-4" style={{ backgroundImage: "url('assets/img/bg_2.jpg')" }}>
-                    <div class="card-body">
-                      <div class="row">
-                        <div class="col-lg-4 col-md-4 col-4">
-                          <div class="row">
-                            <div class="col-10">
-                              <img src="assets/img/buybackart_logo.png" class="card-img ml-2" alt="buybackart_logo" />
-                            </div>
-                          </div>
-                          <div class="row mt-3">
-                            <div class="card-img col-12">
-                              <img src="assets/img/iphone11-red.png" alt="" class="img-fluid" />
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-lg-8 col-md-8 col-8">
-                          <button class="btn btn-block btn-default text-uppercase">
-                            <strong>Sell Your iPhone 11</strong>
-                          </button>
-                          <div class="row">
-                            <div class="col-md-12 col-12">
-                              <p class="text-center mt-3">Get Upto INR 37500</p>
-                              <div class="row">
-                                <div class="col-lg-6 col-md-6 col-6 mr-auto">
-                                  <p>For 64 GB</p>
-                                </div>
-                              </div>
-                              <p class="text-center">Get Upto INR 40500</p>
-                              <div class="row">
-                                <div class="col-lg-6 col-md-6 col-6 mr-auto">
-                                  <p>For 128 GB</p>
-                                </div>
-                              </div>
-                              <p class="text-center">Get Upto INR 43000</p>
-                              <div class="row">
-                                <div class="col-lg-6 col-md-6 col-6 mr-auto">
-                                  <p>For 256 GB</p>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="row justify-content-end">
-                            <div class="col-lg-7 col-md-7 col-7">
-                              <a href="http://buybackart.com/choose_variant?id=61" class="btn btn-sm">Sell Now</a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+          <Carousel id="offers_carousel" activeIndex={index} onSelect={handleSelect}>
+            <Carousel.Item>
+              <div class="d-flex offer">
+                <div class="card shadow mx-3 offer__item" style={{ backgroundImage: "url(" + carouselbg2 + ")" }}>
+                  <div class="row p-3">
+                    <div class="col-lg-5 col-md-5 col-5">
+                      <img src={iphone11Red} alt="iphone 11 Red" class="img-fluid" />
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-7 offer__detail">
+                      <h3>iPhone 11</h3>
+                      <p>Get Upto INR 37500
+                        <span>For 64 GB</span>
+                      </p>
+                      <p>Get Upto INR 40500
+                        <span>For 128 GB</span>
+                      </p>
+                      <p>Get Upto INR 43000
+                        <span>For 256 GB</span>
+                      </p>
+                      <a href="http://buybackart.com/choose_variant?id=61" class="btn btn-sm">Sell Now</a>
                     </div>
                   </div>
-                  <div class="card shadow-sm mr-4">
-                    <div class="card-body">
-                      <div class="row">
-                        <div class="col-lg-4 col-md-4 col-4">
-                          <div class="row">
-                            <div class="col-10">
-                              <img src="assets/img/buybackart_logo.png" class="card-img ml-2" alt="buybackart_logo" />
-                            </div>
-                          </div>
-                          <div class="row mt-3">
-                            <div class="card-img col-12">
-                              <img src="assets/img/iphone 11 pro_1.jpeg" alt="iphone 11 pro_1.jpeg" class="img-fluid" />
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-lg-8 col-md-8 col-8">
-                          <button class="btn btn-block btn-default text-uppercase">Sell Your iPhone 11 PRO</button>
-                          <div class="row">
-                            <div class="col-md-12 col-12">
-                              <p class="text-center mt-3">Get Upto INR 56000</p>
-                              <div class="row">
-                                <div class="col-lg-6 col-md-6 col-6 mr-auto">
-                                  <p>For 64 GB</p>
-                                </div>
-                              </div>
-                              <p class="text-center">Get Upto INR 63000</p>
-                              <div class="row">
-                                <div class="col-lg-6 col-md-6 col-6 mr-auto">
-                                  <p>For 256 GB</p>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <br />
-                          <div class="row justify-content-end">
-                            <div class="col-lg-7 col-md-7 col-7">
-                              <a href="http://buybackart.com/choose_variant?id=42" class="btn btn-sm">Sell Now</a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+                </div>
+                <div class="card shadow mx-3 offer__item">
+                  <div class="row p-3">
+                    <div class="col-lg-5 col-md-5 col-5">
+                      <img src={iphone11Pro1} alt="iphone 11 pro" class="img-fluid" />
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-7 offer__detail">
+                      <h3>iPhone 11 PRO</h3>
+                      <p>Get Upto INR 56000
+                        <span>For 64 GB</span>
+                      </p>
+                      <p>Get Upto INR 63000
+                        <span>For 256 GB</span>
+                      </p>
+                      <a href="http://buybackart.com/choose_variant?id=42" class="btn btn-sm">Sell Now</a>
                     </div>
                   </div>
-                  <div class="card shadow-sm mr-4" style={{ backgroundImage: "url('assets/img/bg_2.jpg')" }}>
-                    <div class="card-body">
-                      <div class="row">
-                        <div class="col-lg-4 col-md-4 col-4">
-                          <div class="row">
-                            <div class="col-10">
-                              <img src="assets/img/buybackart_logo.png" class="card-img ml-2" alt="buybackart_logo" />
-                            </div>
-                          </div>
-                          <div class="row mt-3">
-                            <div class="card-img col-12">
-                              <img src="assets/img/iphone 11 pro max.png" alt="iphone 11 pro max.png" class="img-fluid" />
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-lg-8 col-md-8 col-8">
-                          <button class="btn btn-block btn-default text-uppercase">
-                            <strong>Sell Your iPhone 11 PRO MAX</strong>
-                          </button>
-                          <div class="row">
-                            <div class="col-md-12 col-12">
-                              <p class="text-center mt-3">Get Upto INR 62000</p>
-                              <div class="row">
-                                <div class="col-lg-6 col-md-6 col-6 mr-auto">
-                                  <p>For 64 GB</p>
-                                </div>
-                              </div>
-                              <p class="text-center">Get Upto INR 63500</p>
-                              <div class="row">
-                                <div class="col-lg-6 col-md-6 col-6 mr-auto">
-                                  <p>For 256 GB</p>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="row justify-content-end">
-                            <div class="col-lg-7 col-md-7 col-7">
-                              <a href="http://buybackart.com/choose_variant?id=56" class="btn btn-sm">Sell Now</a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+                </div>
+                <div class="card shadow mx-3 offer__item" style={{ backgroundImage: "url(" + carouselbg2 + ")" }}>
+                  <div class="row p-3">
+                    <div class="col-lg-5 col-md-5 col-5">
+                      <img src={iphone11ProMax} alt="iphone 11 pro max" class="img-fluid" />
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-7 offer__detail">
+                      <h3>iPhone 11 PRO MAX</h3>
+                      <p>Get Upto INR 62000
+                        <span>For 64 GB</span>
+                      </p>
+                      <p>Get Upto INR 63500
+                        <span>For 256 GB</span>
+                      </p>
+                      <a href="http://buybackart.com/choose_variant?id=56" class="btn btn-sm">Sell Now</a>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="carousel-item">
-                <div class="d-flex">
-                  <div class="card shadow-sm mr-4">
-                    <div class="card-body">
-                      <div class="row">
-                        <div class="col-lg-4 col-md-4 col-4">
-                          <div class="row">
-                            <div class="col-10">
-                              <img src="assets/img/buybackart_logo.png" class="card-img ml-2" alt="buybackart_logo" />
-                            </div>
-                          </div>
-                          <div class="row mt-3">
-                            <div class="card-img col-12">
-                              <img src="assets/img/iphone XR_1.png" alt="" class="img-fluid" />
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-lg-8 col-md-8 col-8">
-                          <button class="btn btn-block btn-default text-uppercase">Sell Your iPhone XR</button>
-                          <div class="row">
-                            <div class="col-md-12 col-12">
-                              <p class="text-center mt-3">Get Upto INR 30000</p>
-                              <div class="row">
-                                <div class="col-lg-6 col-md-6 col-6 mr-auto">
-                                  <p>For 64 GB</p>
-                                </div>
-                              </div>
-                              <p class="text-center">Get Upto INR 37000</p>
-                              <div class="row">
-                                <div class="col-lg-6 col-md-6 col-6 mr-auto">
-                                  <p>For 128 GB</p>
-                                </div>
-                              </div>
-                              <p class="text-center">Get Upto INR 40000</p>
-                              <div class="row">
-                                <div class="col-lg-6 col-md-6 col-6 mr-auto">
-                                  <p>For 256 GB</p>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="row justify-content-end">
-                            <div class="col-lg-7 col-md-7 col-7">
-                              <a href="http://buybackart.com/choose_variant?id=57" class="btn btn-sm">Sell Now</a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+            </Carousel.Item>
+            <Carousel.Item>
+              <div class="d-flex">
+                <div class="card shadow mx-3 offer__item">
+                  <div class="row p-3">
+                    <div class="col-lg-5 col-md-5 col-5">
+                      <img src={iphoneXR_1} alt="iphone XR" class="img-fluid" />
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-7 offer__detail">
+                      <h3>iPhone XR</h3>
+                      <p>Get Upto INR 30000
+                        <span>For 64 GB</span>
+                      </p>
+                      <p>Get Upto INR 37000
+                        <span>For 128 GB</span>
+                      </p>
+                      <p>Get Upto INR 40000
+                        <span>For 256 GB</span>
+                      </p>
+                      <a href="http://buybackart.com/choose_variant?id=57" class="btn btn-sm">Sell Now</a>
                     </div>
                   </div>
-                  <div class="card shadow-sm mr-4" style={{ backgroundImage: "url('assets/img/bg_2.jpg')" }}>
-                    <div class="card-body">
-                      <div class="row">
-                        <div class="col-lg-4 col-md-4 col-4">
-                          <div class="row">
-                            <div class="col-10">
-                              <img src="assets/img/buybackart_logo.png" class="card-img ml-2" alt="buybackart_logo" />
-                            </div>
-                          </div>
-                          <div class="row mt-3">
-                            <div class="card-img col-12">
-                              <img src="assets/img/iphone XS.png" alt="iphone XS.png" class="img-fluid" />
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-lg-8 col-md-8 col-8">
-                          <button class="btn btn-block btn-default text-uppercase">Sell Your iPhone XS</button>
-                          <div class="row">
-                            <div class="col-md-12 col-12">
-                              <p class="text-center mt-3">Get Upto INR 38000</p>
-                              <div class="row">
-                                <div class="col-lg-6 col-md-6 col-6">
-                                  <p>For 64 GB</p>
-                                </div>
-                              </div>
-                              <p class="text-center">Get Upto INR 42000</p>
-                              <div class="row">
-                                <div class="col-lg-6 col-md-6 col-6">
-                                  <p>For 256 GB</p>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <br />
-                          <div class="row justify-content-end">
-                            <div class="col-lg-7 col-md-7 col-7">
-                              <a href="http://buybackart.com/choose_variant?id=52" class="btn btn-sm">Sell Now</a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+                </div>
+                <div class="card shadow mx-3 offer__item" style={{ backgroundImage: "url(" + carouselbg2 + ")" }}>
+                  <div class="row p-3">
+                    <div class="col-lg-5 col-md-5 col-5">
+                      <img src={iphoneXS} alt="iphone XS" class="img-fluid" />
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-7 offer__detail">
+                      <h3>iPhone XS</h3>
+                      <p>Get Upto INR 38000
+                        <span>For 64 GB</span>
+                      </p>
+                      <p>Get Upto INR 42000
+                        <span>For 256 GB</span>
+                      </p>
+                      <a href="http://buybackart.com/choose_variant?id=52" class="btn btn-sm">Sell Now</a>
                     </div>
                   </div>
-                  <div class="card shadow-sm mr-4">
-                    <div class="card-body">
-                      <div class="row">
-                        <div class="col-lg-4 col-md-4 col-4">
-                          <div class="row">
-                            <div class="col-10">
-                              <img src="assets/img/buybackart_logo.png" class="card-img ml-2" alt="buybackart_logo" />
-                            </div>
-                          </div>
-                          <div class="row mt-3">
-                            <div class="card-img col-12">
-                              <img src="assets/img/iphone X.png" alt="iphone X.png" class="img-fluid" />
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-lg-8 col-md-8 col-8">
-                          <button class="btn btn-block btn-default text-uppercase">Sell Your iPhone X</button>
-                          <div class="row">
-                            <div class="col-md-12 col-12">
-                              <p class="text-center mt-3">Get Upto INR 34000</p>
-                              <div class="row">
-                                <div class="col-lg-6 col-md-6 col-6">
-                                  <p>For 64 GB</p>
-                                </div>
-                              </div>
-                              <p class="text-center">Get Upto INR 38000</p>
-                              <div class="row">
-                                <div class="col-lg-6 col-md-6 col-6">
-                                  <p>For 256 GB</p>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <br />
-                          <div class="row justify-content-end">
-                            <div class="col-lg-7 col-md-7 col-7">
-                              <a href="http://buybackart.com/choose_variant?id=51" class="btn btn-sm">Sell Now</a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+                </div>
+                <div class="card shadow mx-3 offer__item">
+                  <div class="row p-3">
+                    <div class="col-lg-5 col-md-5 col-5">
+                      <img src={iphoneX} alt="iphone X" class="img-fluid" />
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-7 offer__detail">
+                      <h3>iPhone X</h3>
+                      <p>Get Upto INR 34000
+                        <span>For 64 GB</span>
+                      </p>
+                      <p>Get Upto INR 38000
+                        <span>For 256 GB</span>
+                      </p>
+                      <a href="http://buybackart.com/choose_variant?id=51" class="btn btn-sm">Sell Now</a>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <a class="carousel-control-prev" href="#offers_carousel" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#offers_carousel" role="button" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Next</span>
-            </a>
-          </div> */}
+            </Carousel.Item>
+          </Carousel>
         </div>
       </section>
+      {/* our partners */}
       <section class="container-fluid py-5" style={{ background: '#fafafa' }}>
         <div class="row px-lg-5">
-          <h2 class="main_heading mb-2">Our Partners</h2>
+          <h2 class="main_heading mb-4">Our Partners</h2>
         </div>
         <div class="row px-lg-5">
-          <img src={partner} alt="Our Partner" />
+          <ul class="our-partner">
+            <li><img src={croma} alt="Croma logo" class="card-img" /></li>
+            <li>
+              <a href="https://buybackart.com/phone_one_brand?id=14">
+                <img src={imagine} alt="Imagine logo" class="card-img" />
+              </a>
+            </li>
+            <li><img src={multiplier} alt="Multiplier" class="card-img" /></li>
+            <li><img src={croma} alt="Croma logo" class="card-img" /></li>
+            <li>
+              <a href="https://buybackart.com/phone_one_brand?id=14">
+                <img src={imagine} alt="Imagine logo" class="card-img" />
+              </a>
+            </li>
+            <li><img src={multiplier} alt="Multiplier" class="card-img" /></li>
+            <li>
+              <a href="https://buybackart.com/phone_one_brand?id=14">
+                <img src={imagine} alt="Imagine logo" class="card-img" />
+              </a>
+            </li>
+          </ul>
         </div>
       </section>
 
@@ -601,7 +483,117 @@ function App() {
             <h2 class="main_heading">What our customers &amp; partners say</h2>
           </div>
           <div class="row px-lg-5">
-            <img src={testimonial} alt="testimonial" />
+            <Carousel id="testimonial" activeIndex={index} onSelect={handleSelect}>
+              <Carousel.Item>
+                <div class="d-md-flex align-center">
+                  <div class="testimonial__slide">
+                    <img src={shivamGarg} alt="user" class="rounded-circle shadow-sm" />
+                    <h6 class="text-capitalize text-center">Shivam Garg <br /> Customer</h6>
+                  </div>
+                  <div class="testimonial__text">
+                    <blockquote class="card-text">
+                      Very good service provided by BuyBacKart for my Samsung M30s (6GB +128 GB) , while many websites
+                      are only saying the pickup from our location but they are actually not fulfilling, But Mr Aftab
+                      Ansari from BuyBacKart has given me a far better deal in comparison to others and also ensured
+                      pick up from my address. Mr Shadab Ansari and Md Tamanna Alam visited my address to collect the
+                      phone and travelled for nearly 2 hours, they checked the phone genuinely and provided me the best
+                      price. I suggest to mention order status on website and transactions through bank account or upi
+                      is more preferable than cash.<br />Thankyou BuyBacKart for such a wonderful experience of selling my
+                      mobile online from home.
+                    </blockquote>
+                  </div>
+                </div>
+              </Carousel.Item>
+              <Carousel.Item>
+                <div class="d-md-flex align-center">
+                  <div class="testimonial__slide d-flex align-items-center">
+                    <img src={rahul} alt="user" class="rounded-circle shadow-sm" />
+                    <h6 class="text-capitalize text-center">Rahul <br /> Customer</h6>
+                  </div>
+                  <div class="testimonial__text">
+                    <blockquote class="card-text">
+                      BuyBacKart is a fantastic and one-of-a-kind service. It has helped me to sell my old used phone in
+                      a hassle free manner. The service is very convenient, with doorstep collection of phone, and
+                      immediate cash payment. The rates offered also are very competitive, given the used condition of
+                      the phone.
+                    </blockquote>
+                  </div>
+                </div>
+              </Carousel.Item>
+              <Carousel.Item>
+                <div class="d-md-flex align-center">
+                  <div class="testimonial__slide">
+                    <img src={user} alt="user" class="rounded-circle shadow-sm" />
+                    <h6 class="text-capitalize text-center">Niteshkumar yadav <br /> Customer</h6>
+                  </div>
+                  <div class="testimonial__text">
+                    <blockquote class="card-text">
+                      Got a good experience polite staff and way of dealing was good, but didn't get the exact amount
+                      which was showing.<br />Overall was a good experience.
+                    </blockquote>
+                  </div>
+                </div>
+              </Carousel.Item>
+              <Carousel.Item>
+                <div class="d-md-flex align-center">
+                  <div class="testimonial__slide">
+                    <img src={harishSingh} alt="user" class="rounded-circle shadow-sm" />
+                    <h6 class="text-capitalize text-center">HARISH SINGH <br />Customer</h6>
+                  </div>
+                  <div class="testimonial__text">
+                    <blockquote class="card-text">
+                      I had a great experience selling my iPhone on buybackart, got very fast service and best price
+                      comparison other sites thanx buybackart ...
+                    </blockquote>
+                  </div>
+                </div>
+              </Carousel.Item>
+              <Carousel.Item>
+                <div class="d-md-flex align-center">
+                  <div class="testimonial__slide">
+                    <img src={user} alt="user" class="rounded-circle shadow-sm" />
+                    <h6 class="text-capitalize text-center">Kopal Jain <br />Customer</h6>
+                  </div>
+                  <div class="testimonial__text">
+                    <blockquote class="card-text">
+                      Good experience..service wasn't available at my place still they sent their executive and picked
+                      my stuff..highly recommended.
+                    </blockquote>
+                  </div>
+                </div>
+              </Carousel.Item>
+              <Carousel.Item>
+                <div class="d-md-flex align-center">
+                  <div class="testimonial__slide">
+                    <img src={user} alt="user" class="rounded-circle shadow-sm" />
+                    <h6 class="text-capitalize text-center">Kannu S Mallik <br />Customer</h6>
+                  </div>
+                  <div class="testimonial__text">
+                    <blockquote class="card-text">
+                      I had an amazing experience recently with BuyBacKart. I ordered an iphone charger and they were
+                      very prompt &amp; responsive. Professional staff, affordable price, and overall good service. I
+                      will definitely recommend BuyBacKart to friends and around.
+                    </blockquote>
+                  </div>
+                </div>
+              </Carousel.Item>
+              <Carousel.Item>
+                <div class="d-md-flex align-center">
+                  <div class="testimonial__slide">
+                    <img src={gauravJha} alt="user_icon" class="rounded-circle shadow-sm" />
+                    <h6 class="text-capitalize text-center">Gaurav Jha <br />Multiplier</h6>
+                  </div>
+                  <div class="testimonial__text">
+                    <blockquote class="card-text">
+                      We developed a great partnership with BuyBacKart and their dedication towards their assigned job
+                      is awesome in all aspects. We appreciate their attention towards their task &amp; job done by them
+                      in short notice. BuyBacKart provides all type of solutions towards procuring new devices, buyback
+                      &amp; Accessories provider.
+                    </blockquote>
+                  </div>
+                </div>
+              </Carousel.Item>
+            </Carousel>
           </div>
         </div>
       </section>
@@ -645,21 +637,20 @@ function App() {
           <div class="footer-sec__social ms-auto flex-column justify-content-start">
             <h6>Follow Us</h6>
             <div class="d-flex">
-              <img src={socialIcon} alt="social icon" />
-              {/* <FontAwesomeIcon alt="EnerBank Facebook" title="EnerBank Facebook" icon={faFacebookF} /> */}
-              {/* <a href="https://www.facebook.com/buybacknow" target="_blank">
-                <i class="fa fa-facebook"></i>
+              <a href="https://www.facebook.com/buybacknow" target="_blank">
+                <FontAwesomeIcon alt="Twitter" title="Twitter" icon={faTwitter} />
               </a>
               <a href="https://twitter.com/buybacknow" target="_blank">
-                <i class="fa fa-twitter"></i>
+                <FontAwesomeIcon alt="Facebook" title="Facebook" icon={faFacebookF} />
               </a>
               <a href="https://www.youtube.com/channel/UCHkKUA0iSKjqDhq9hr8AlCw" target="_blank">
-                <i class="fa fab fa-youtube"></i>
+                <FontAwesomeIcon alt="Instagram" title="Instagram" icon={faInstagram} />
               </a>
               <a href="https://www.instagram.com/buybacknow/" target="_blank">
-                <i class="fa fab fa-instagram"></i>
-              </a> */}
+                <FontAwesomeIcon alt="Linkedin" title="Youtube" icon={faYoutube} />
+              </a>
             </div>
+            <a href="#" class="chatwithus-btn">Chat with us</a>
           </div>
         </div>
         <hr class="row mt-5" />

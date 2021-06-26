@@ -1,24 +1,24 @@
 body {
   counter-reset: selling-counter;
 }
-.top-navbar {
-  background:#303841;
-  padding:5px 0;
-  font-size:14px;
-}
-.top-navbar-left li {
-  padding-right:14px;
-}
-.top-navbar-right li {
-  padding-left:14px;
-}
+
+.top_links li {
+  & > svg {
+    color: $primaryMid;
+  }
+
+  & > a { 
+    margin-left: 5px;
+    color: $primaryMid;
+  }
+ }
 
 // navbar link
 .navbar {
   padding: 0;
 }
 @media (min-width: 576px) {
-  .navbar-expand-sm .navbar-nav .nav-link {
+  .navbar-nav .nav-link {
     padding: 1rem !important;
   }
 }
@@ -37,6 +37,19 @@ body {
   padding: 0 !important;
   background-color: transparent !important;
 }
+
+// carousel
+.carousel-item {
+  position: relative;
+  display: none;
+  float: left;
+  width: 100%;
+  margin-right: -100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transition: transform .6s ease-in-out;
+}
+
 .wp-slide-1 {
   background-size: 100% 100%;
   background-repeat:no-repeat;
@@ -335,7 +348,47 @@ footer ul li {
   margin-top: 10px;
 }
 
-#offers_carousel .card { width: 33.33%; }
+.offer {
+  &__item { 
+    width: 33.33%; 
+    border-radius: 7px;
+  }
+  
+  &__detail {
+    text-align: right;
+
+    & > h3 {
+      background: $primary;
+      color: $secondary;
+      text-align: center;
+      margin-left: auto;
+      display: inline-block;
+      font-size: 15px;
+      font-weight: 400;
+      padding: 5px 8px;
+      border-radius: 5px;      
+      margin-bottom: 10px;
+    }
+
+    & > p {
+      margin-bottom: 5px;
+      line-height: 16px;
+      color: $primary;
+      font-weight: bold;
+
+      & > span {
+        display: inline-block;
+        font-size: 11px;
+        font-weight: normal;
+      }
+    }
+
+    & > .btn {
+      background: $secondary;
+      margin-top: 5px;
+    }
+  }
+}
 
 #offers_carousel .carousel-control-prev {
   left: -100px;
@@ -397,19 +450,27 @@ footer ul li {
   display: flex;
   justify-content: center;
 
-  & > a {
-    width: 40px;
-    height: 40px;
+  & > .d-flex > a {
+    font-size: 28px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #fff;
-    margin: 0 10px;
+    margin: 0 15px;
+    color: #999;
 
     & > .fa {
-      color: #1a3756;
+      color: #999;
     }
+  }
+  & > .chatwithus-btn{
+    margin-top: 30px;
+    width: 120px;
+    padding: 10px;
+    background: $secondary;
+    color: $primary;
+    font-weight: bold;
+    text-align: center;
   }
 }
 
@@ -427,6 +488,7 @@ footer {
     & > .submit {
       background: $secondary;
       border: 1px solid $secondary;
+      font-weight: bold;
       padding: 6px 14px;
     }
   }
@@ -550,7 +612,7 @@ footer {
 }
 
 @media (min-width: 576px) {
-  .navbar-expand-sm .navbar-nav .nav-link {
+  .navbar-nav .nav-link {
     padding: .5rem 1rem !important;
   }
 }
@@ -720,4 +782,83 @@ footer {
   background: #ccc;
   mask-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3e%3cpath d='M2.75 0l-1.5 1.5L3.75 4l-2.5 2.5L2.75 8l4-4-4-4z'/%3e%3c/svg%3e");
   -webkit-mask-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3e%3cpath d='M2.75 0l-1.5 1.5L3.75 4l-2.5 2.5L2.75 8l4-4-4-4z'/%3e%3c/svg%3e");
+}
+
+.searchbar {
+  & > input {
+    position: relative;
+    border: none;
+    background: $navbarHover;
+    padding-left: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 14px;
+
+    &:focus {
+      box-shadow: none;
+      background: $navbarHover;
+    }
+  }
+
+  & > .input-group-text {
+    background: $navbarHover;
+    border: none;
+  }
+}
+
+// our-partner
+.our-partner {
+  display: flex;
+
+  & > li {
+    margin-right: 30px;
+
+    img {
+      max-width: 150px;
+    }
+  }
+}
+
+// testimonial
+#testimonial-box {
+  background: #f2f4f5;
+  padding: 10px 0;
+}
+
+.testimonial {
+  &__slide {
+    text-align: center;
+    flex-direction: column;
+    margin-right: 50px;
+    padding: 0 20px;
+    line-height: 22px;
+
+    & > img {
+      width: 150px;
+      height: 150px;
+      background: #fff;
+      margin-bottom: 20px;
+    }
+  }
+
+  &__text {
+    display: flex;
+    align-items: center;
+
+    & > .card-text {
+      padding: 50px;
+      background: #fff;
+      position: relative;
+    }
+
+    &::before {
+      position: absolute;
+      content: "";
+      top: 50px;
+      right: 100%;
+      border: 25px solid transparent;
+      border-top: 20px solid #fff;
+      border-right: 30px solid #fff;
+    }
+  }
 }
