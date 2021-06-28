@@ -349,9 +349,13 @@ footer ul li {
 }
 
 .offer {
-  &__item { 
-    width: 33.33%; 
+  &__item {
     border-radius: 7px;
+    height: 100%;
+  }
+
+  &__carousel {
+    padding: 20px 0;
   }
   
   &__detail {
@@ -377,7 +381,7 @@ footer ul li {
       font-weight: bold;
 
       & > span {
-        display: inline-block;
+        display: block;
         font-size: 11px;
         font-weight: normal;
       }
@@ -588,10 +592,6 @@ footer {
   }
   #offers_carousel .carousel-control-next {
     right: 0px;
-  }
-  .main_heading {
-    padding-left: 15px;
-    padding-right: 15px;
   }
   .hidden-mobile {
       display: none;
@@ -809,13 +809,19 @@ footer {
 // our-partner
 .our-partner {
   display: flex;
+  flex-direction: column;
 
   & > li {
     margin-right: 30px;
+    text-align: center;
 
     img {
       max-width: 150px;
     }
+  }
+
+  @media (min-width: 991px) {
+    flex-direction: row;
   }
 }
 
