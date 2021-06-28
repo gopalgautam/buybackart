@@ -56,24 +56,11 @@ import user from "./assets/img/user.png";
 import harishSingh from "./assets/img/HarishSingh.png";
 import gauravJha from "./assets/img/gaurav_jha.jpg";
 
-
-import 'jquery';
-import '@popperjs/core'; // Edit here
-import 'bootstrap/dist/js/bootstrap.bundle';
-
-import { Carousel, CarouselItem } from "react-bootstrap";
-
-import Carousel1 from 'react-multi-carousel';
+import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 
 
 function App() {
-  const [index, setIndex] = useState(0);
-
-  const handleSelect = (selectedIndex, e) => {
-    setIndex(selectedIndex);
-  };
-
 
   const responsive = {
     superLargeDesktop: {
@@ -87,6 +74,25 @@ function App() {
     tablet: {
       breakpoint: { max: 1024, min: 464 },
       items: 2
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1
+    }
+  };
+
+  const singleItem = {
+    superLargeDesktop: {
+      breakpoint: { max: 4000, min: 3000 },
+      items: 1
+    },
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 1
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 1
     },
     mobile: {
       breakpoint: { max: 464, min: 0 },
@@ -181,16 +187,17 @@ function App() {
         </div>
       </header>
       {/* banner */}
-      <Carousel slide>
-        <CarouselItem>
-          <img src={banner} class="img-fluid" />
-        </CarouselItem>
-        <CarouselItem>
-          <img src={banner1} class="img-fluid" />
-        </CarouselItem>
-        <CarouselItem>
-          <img src={banner2} class="img-fluid" />
-        </CarouselItem>
+      <Carousel
+        responsive={singleItem}
+        swipeable={true}
+        draggable={true}
+        showDots={false}
+        infinite={true}
+        containerClass="offer__carousel"
+      >
+        <img src={banner} class="img-fluid" />
+        <img src={banner1} class="img-fluid" />
+        <img src={banner2} class="img-fluid" />
       </Carousel>
       {/* explore here */}
       <section class="container py-3 explore d-flex flex-column">
@@ -362,7 +369,7 @@ function App() {
           <h2 class="main_heading">Exciting offers</h2>
         </div>
         <div class="row px-lg-5">
-          <Carousel1
+          <Carousel
             responsive={responsive}
             swipeable={true}
             draggable={true}
@@ -480,7 +487,7 @@ function App() {
               </div>
             </div>
 
-          </Carousel1>
+          </Carousel>
         </div>
       </section>
       {/* our partners */}
@@ -519,116 +526,109 @@ function App() {
             <h2 class="main_heading">What our customers &amp; partners say</h2>
           </div>
           <div class="row px-lg-5">
-            <Carousel id="testimonial" activeIndex={index} onSelect={handleSelect}>
-              <Carousel.Item>
-                <div class="d-md-flex align-center">
-                  <div class="testimonial__slide">
-                    <img src={shivamGarg} alt="user" class="rounded-circle shadow-sm" />
-                    <h6 class="text-capitalize text-center">Shivam Garg <br /> Customer</h6>
-                  </div>
-                  <div class="testimonial__text">
-                    <blockquote class="card-text">
-                      Very good service provided by BuyBacKart for my Samsung M30s (6GB +128 GB) , while many websites
-                      are only saying the pickup from our location but they are actually not fulfilling, But Mr Aftab
-                      Ansari from BuyBacKart has given me a far better deal in comparison to others and also ensured
-                      pick up from my address. Mr Shadab Ansari and Md Tamanna Alam visited my address to collect the
-                      phone and travelled for nearly 2 hours, they checked the phone genuinely and provided me the best
-                      price. I suggest to mention order status on website and transactions through bank account or upi
-                      is more preferable than cash.<br />Thankyou BuyBacKart for such a wonderful experience of selling my
-                      mobile online from home.
-                    </blockquote>
-                  </div>
+            <Carousel
+              responsive={singleItem}
+              swipeable={true}
+              draggable={true}
+              showDots={false}
+              infinite={true}
+              containerClass="offer__carousel"
+            >
+              <div class="d-md-flex align-center">
+                <div class="testimonial__slide">
+                  <img src={shivamGarg} alt="user" class="rounded-circle shadow-sm" />
+                  <h6 class="text-capitalize text-center">Shivam Garg <br /> Customer</h6>
                 </div>
-              </Carousel.Item>
-              <Carousel.Item>
-                <div class="d-md-flex align-center">
-                  <div class="testimonial__slide d-flex align-items-center">
-                    <img src={rahul} alt="user" class="rounded-circle shadow-sm" />
-                    <h6 class="text-capitalize text-center">Rahul <br /> Customer</h6>
-                  </div>
-                  <div class="testimonial__text">
-                    <blockquote class="card-text">
-                      BuyBacKart is a fantastic and one-of-a-kind service. It has helped me to sell my old used phone in
-                      a hassle free manner. The service is very convenient, with doorstep collection of phone, and
-                      immediate cash payment. The rates offered also are very competitive, given the used condition of
-                      the phone.
-                    </blockquote>
-                  </div>
+                <div class="testimonial__text">
+                  <blockquote class="card-text">
+                    Very good service provided by BuyBacKart for my Samsung M30s (6GB +128 GB) , while many websites
+                    are only saying the pickup from our location but they are actually not fulfilling, But Mr Aftab
+                    Ansari from BuyBacKart has given me a far better deal in comparison to others and also ensured
+                    pick up from my address. Mr Shadab Ansari and Md Tamanna Alam visited my address to collect the
+                    phone and travelled for nearly 2 hours, they checked the phone genuinely and provided me the best
+                    price. I suggest to mention order status on website and transactions through bank account or upi
+                    is more preferable than cash.<br />Thankyou BuyBacKart for such a wonderful experience of selling my
+                    mobile online from home.
+                  </blockquote>
                 </div>
-              </Carousel.Item>
-              <Carousel.Item>
-                <div class="d-md-flex align-center">
-                  <div class="testimonial__slide">
-                    <img src={user} alt="user" class="rounded-circle shadow-sm" />
-                    <h6 class="text-capitalize text-center">Niteshkumar yadav <br /> Customer</h6>
-                  </div>
-                  <div class="testimonial__text">
-                    <blockquote class="card-text">
-                      Got a good experience polite staff and way of dealing was good, but didn't get the exact amount
-                      which was showing.<br />Overall was a good experience.
-                    </blockquote>
-                  </div>
+              </div>
+              <div class="d-md-flex align-center">
+                <div class="testimonial__slide d-flex align-items-center">
+                  <img src={rahul} alt="user" class="rounded-circle shadow-sm" />
+                  <h6 class="text-capitalize text-center">Rahul <br /> Customer</h6>
                 </div>
-              </Carousel.Item>
-              <Carousel.Item>
-                <div class="d-md-flex align-center">
-                  <div class="testimonial__slide">
-                    <img src={harishSingh} alt="user" class="rounded-circle shadow-sm" />
-                    <h6 class="text-capitalize text-center">HARISH SINGH <br />Customer</h6>
-                  </div>
-                  <div class="testimonial__text">
-                    <blockquote class="card-text">
-                      I had a great experience selling my iPhone on buybackart, got very fast service and best price
-                      comparison other sites thanx buybackart ...
-                    </blockquote>
-                  </div>
+                <div class="testimonial__text">
+                  <blockquote class="card-text">
+                    BuyBacKart is a fantastic and one-of-a-kind service. It has helped me to sell my old used phone in
+                    a hassle free manner. The service is very convenient, with doorstep collection of phone, and
+                    immediate cash payment. The rates offered also are very competitive, given the used condition of
+                    the phone.
+                  </blockquote>
                 </div>
-              </Carousel.Item>
-              <Carousel.Item>
-                <div class="d-md-flex align-center">
-                  <div class="testimonial__slide">
-                    <img src={user} alt="user" class="rounded-circle shadow-sm" />
-                    <h6 class="text-capitalize text-center">Kopal Jain <br />Customer</h6>
-                  </div>
-                  <div class="testimonial__text">
-                    <blockquote class="card-text">
-                      Good experience..service wasn't available at my place still they sent their executive and picked
-                      my stuff..highly recommended.
-                    </blockquote>
-                  </div>
+              </div>
+              <div class="d-md-flex align-center">
+                <div class="testimonial__slide">
+                  <img src={user} alt="user" class="rounded-circle shadow-sm" />
+                  <h6 class="text-capitalize text-center">Niteshkumar yadav <br /> Customer</h6>
                 </div>
-              </Carousel.Item>
-              <Carousel.Item>
-                <div class="d-md-flex align-center">
-                  <div class="testimonial__slide">
-                    <img src={user} alt="user" class="rounded-circle shadow-sm" />
-                    <h6 class="text-capitalize text-center">Kannu S Mallik <br />Customer</h6>
-                  </div>
-                  <div class="testimonial__text">
-                    <blockquote class="card-text">
-                      I had an amazing experience recently with BuyBacKart. I ordered an iphone charger and they were
-                      very prompt &amp; responsive. Professional staff, affordable price, and overall good service. I
-                      will definitely recommend BuyBacKart to friends and around.
-                    </blockquote>
-                  </div>
+                <div class="testimonial__text">
+                  <blockquote class="card-text">
+                    Got a good experience polite staff and way of dealing was good, but didn't get the exact amount
+                    which was showing.<br />Overall was a good experience.
+                  </blockquote>
                 </div>
-              </Carousel.Item>
-              <Carousel.Item>
-                <div class="d-md-flex align-center">
-                  <div class="testimonial__slide">
-                    <img src={gauravJha} alt="user_icon" class="rounded-circle shadow-sm" />
-                    <h6 class="text-capitalize text-center">Gaurav Jha <br />Multiplier</h6>
-                  </div>
-                  <div class="testimonial__text">
-                    <blockquote class="card-text">
-                      We developed a great partnership with BuyBacKart and their dedication towards their assigned job
-                      is awesome in all aspects. We appreciate their attention towards their task &amp; job done by them
-                      in short notice. BuyBacKart provides all type of solutions towards procuring new devices, buyback
-                      &amp; Accessories provider.
-                    </blockquote>
-                  </div>
+              </div>
+              <div class="d-md-flex align-center">
+                <div class="testimonial__slide">
+                  <img src={harishSingh} alt="user" class="rounded-circle shadow-sm" />
+                  <h6 class="text-capitalize text-center">HARISH SINGH <br />Customer</h6>
                 </div>
-              </Carousel.Item>
+                <div class="testimonial__text">
+                  <blockquote class="card-text">
+                    I had a great experience selling my iPhone on buybackart, got very fast service and best price
+                    comparison other sites thanx buybackart ...
+                  </blockquote>
+                </div>
+              </div>
+              <div class="d-md-flex align-center">
+                <div class="testimonial__slide">
+                  <img src={user} alt="user" class="rounded-circle shadow-sm" />
+                  <h6 class="text-capitalize text-center">Kopal Jain <br />Customer</h6>
+                </div>
+                <div class="testimonial__text">
+                  <blockquote class="card-text">
+                    Good experience..service wasn't available at my place still they sent their executive and picked
+                    my stuff..highly recommended.
+                  </blockquote>
+                </div>
+              </div>
+              <div class="d-md-flex align-center">
+                <div class="testimonial__slide">
+                  <img src={user} alt="user" class="rounded-circle shadow-sm" />
+                  <h6 class="text-capitalize text-center">Kannu S Mallik <br />Customer</h6>
+                </div>
+                <div class="testimonial__text">
+                  <blockquote class="card-text">
+                    I had an amazing experience recently with BuyBacKart. I ordered an iphone charger and they were
+                    very prompt &amp; responsive. Professional staff, affordable price, and overall good service. I
+                    will definitely recommend BuyBacKart to friends and around.
+                  </blockquote>
+                </div>
+              </div>
+              <div class="d-md-flex align-center">
+                <div class="testimonial__slide">
+                  <img src={gauravJha} alt="user_icon" class="rounded-circle shadow-sm" />
+                  <h6 class="text-capitalize text-center">Gaurav Jha <br />Multiplier</h6>
+                </div>
+                <div class="testimonial__text">
+                  <blockquote class="card-text">
+                    We developed a great partnership with BuyBacKart and their dedication towards their assigned job
+                    is awesome in all aspects. We appreciate their attention towards their task &amp; job done by them
+                    in short notice. BuyBacKart provides all type of solutions towards procuring new devices, buyback
+                    &amp; Accessories provider.
+                  </blockquote>
+                </div>
+              </div>
             </Carousel>
           </div>
         </div>

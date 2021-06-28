@@ -850,6 +850,7 @@ footer {
   &__text {
     display: flex;
     align-items: center;
+    position: relative;
 
     & > .card-text {
       padding: 50px;
