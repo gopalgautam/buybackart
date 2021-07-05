@@ -473,6 +473,10 @@ footer ul li {
     & > .fa {
       color: #999;
     }
+
+    &:hover {
+      color: #fff000;
+    }
   }
   & > .chatwithus-btn{
     margin-top: 30px;
@@ -534,6 +538,10 @@ footer {
 
       & > a {
         color: $black;
+      }
+
+      & > a:hover {
+        color: #fff000;
       }
     }
   }
