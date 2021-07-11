@@ -61,13 +61,6 @@ import moreImage from "./assets/img/more.png";
 import $ from "jquery";
 import Carousel from 'react-multi-carousel';
 import "bootstrap/dist/js/bootstrap.js";
-// import "./assets/js/script.js";
-
-// $(".dropdown-toggle").each(function () {
-//   $(this).click(function () {
-//     $(this).next(".dropdown-menu").toggle();
-//   });
-// })
 
 function App() {
 
@@ -112,33 +105,31 @@ function App() {
   return (
     <>
       <header>
-        <div className="container-fluid">
-          <div className="d-sm-flex py-2 px-lg-5">
-            <div className="my-auto">
-              <a href="https://buybackart.com/">
-                <img src={logo} className="img-fluid site-logo" alt="logo" />
-              </a>
+        <div className="d-flex py-2 px-lg-5">
+          <div className="my-auto">
+            <a href="https://buybackart.com/">
+              <img src={logo} className="img-fluid site-logo" alt="logo" />
+            </a>
+          </div>
+          <div className="px-sm-5 w-100 d-flex justify-content-center searchbar">
+            <div className="input-group">
+              <label className="input-group-text" htmlFor="inputGroupFile01">
+                <FontAwesomeIcon alt="Linkedin" title="Youtube" icon={faSearch} />
+              </label>
+              <input type="text" className="form-control" placeholder="Start typing..." />
             </div>
-            <div className="px-sm-5 w-100 d-flex justify-content-center searchbar">
-              <div className="input-group">
-                <label className="input-group-text" htmlFor="inputGroupFile01">
-                  <FontAwesomeIcon alt="Linkedin" title="Youtube" icon={faSearch} />
-                </label>
-                <input type="text" className="form-control" placeholder="Start typing..." />
-              </div>
-            </div>
-            <div className="my-auto top-links">
-              <ul className="justify-content-end d-flex align-items-center mb-0">
-                <li className="align-items-center d-flex pe-5">
-                  <FontAwesomeIcon alt="Twitter" title="Twitter" icon={faMapMarker} />
-                  <a href="https://buybackart.com/login_other" className="text-black">Delhi</a>
-                </li>
-                <li className="align-items-center d-flex pl-5">
-                  <FontAwesomeIcon alt="Twitter" title="Twitter" icon={faUser} />
-                  <a href="https://buybackart.com/login_other" className="text-black">Login</a>
-                </li>
-              </ul>
-            </div>
+          </div>
+          <div className="my-auto top-links">
+            <ul className="justify-content-end d-flex align-items-center mb-0">
+              <li className="align-items-center d-flex pe-5">
+                <FontAwesomeIcon alt="Twitter" title="Twitter" icon={faMapMarker} />
+                <a href="https://buybackart.com/login_other" className="text-black">Delhi</a>
+              </li>
+              <li className="align-items-center d-flex pl-5">
+                <FontAwesomeIcon alt="Twitter" title="Twitter" icon={faUser} />
+                <a href="https://buybackart.com/login_other" className="text-black">Login</a>
+              </li>
+            </ul>
           </div>
         </div>
         <hr className="border-top m-0" />
@@ -152,98 +143,349 @@ function App() {
               </button>
               <div className="collapse navbar-collapse" id="navbar-list">
                 <ul className="navbar-nav">
-                  <li className="nav-item active">
-                    <div className="dropdown">
-                      <a className="dropdown-toggle nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">Sell</a>
-                      <div className="dropdown-menu mega-menu" aria-labelledby="dropdownMenuLink">
-                        <div className="submenu-categories">
-                          <h2>Categories</h2>
-                          <ul>
-                            <li><a className="nav-link dropdown-item" href="sell_phone">Phone </a></li>
-                            <li><a className="nav-link dropdown-item" href="sell_apple_ipad">iPad</a></li>
-                            <li><a className="nav-link dropdown-item" href="sell_tablet">Tablet</a></li>
-                            <li><a className="nav-link dropdown-item" href="sell_apple_macbook">MacBook</a></li>
-                            <li><a className="nav-link dropdown-item" href="sell_apple_imac">iMac</a></li>
-                            <li><a className="nav-link dropdown-item" href="sell_laptop">Laptop</a></li>
-                          </ul>
+                  <li className="nav-item dropdown active">
+                    <a className="dropdown-toggle nav-link" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                      aria-haspopup="true" aria-expanded="false">Sell</a>
+                    <div className="dropdown-menu mega-menu" aria-labelledby="dropdownMenuLink">
+                      <div class="container">
+                        <div className="d-sm-flex mb-2 mt-4">
+                          <h2 className="me-auto">Top Brands</h2>
+                          <a className="ms-auto allbrands">View All Brands</a>
                         </div>
-                        <div className="submenu-details">
-                          <div className="d-sm-flex mb-2">
-                            <h2 className="me-auto">Top Brands</h2>
-                            <a className="ms-auto allbrands">View All Brands</a>
-                          </div>
-                          <div className="row">
-                            <a className="align-items-center justify-content-center top-brand-item" href="/">
-                              <img className="img-fluid" alt="Apple" src="https://s3n.cashify.in/cashify/brand/img/xhdpi/1071214e-b44f.jpg" />
-                            </a>
-                            <a className="align-items-center justify-content-center top-brand-item" href="/">
-                              <img class="img-fluid" alt="Xiaomi" src="https://s3n.cashify.in/cashify/brand/img/xhdpi/cb96df6e-080f.jpg" />
-                            </a>
-                            <a class="align-items-center justify-content-center top-brand-item" href="/">
-                              <img class="img-fluid" alt="Samsung" src="https://s3n.cashify.in/cashify/brand/img/xhdpi/406a512d-e8dd.jpg" />
-                            </a>
-                            <a class="align-items-center justify-content-center top-brand-item" href="/">
-                              <img class="img-fluid" alt="Vivo" src="https://s3n.cashify.in/cashify/brand/img/xhdpi/20922c34-8afc.jpg" />
-                            </a>
-                            <a class="align-items-center justify-content-center top-brand-item" href="/">
-                              <img class="img-fluid" alt="OnePlus" src="https://s3n.cashify.in/cashify/brand/img/xhdpi/5f6b4d6f-57a9.jpg" />
-                            </a>
-                            <a class="align-items-center justify-content-center top-brand-item" href="/">
-                              <img class="img-fluid" alt="OPPO" src="https://s3n.cashify.in/cashify/brand/img/xhdpi/ac5c9a7b-76b5.jpg" />
-                            </a>
-                            <a class="align-items-center justify-content-center top-brand-item" href="/">
-                              <img class="img-fluid" alt="Realme" src="https://s3n.cashify.in/cashify/brand/img/xhdpi/0124cc45-3a6c.jpg" />
-                            </a>
-                            <a class="align-items-center justify-content-center top-brand-item" href="/">
-                              <img class="img-fluid" alt="Motorola" src="https://s3n.cashify.in/cashify/brand/img/xhdpi/1dcd7fda-0141.jpg" />
-                            </a>
-                            <a class="align-items-center justify-content-center top-brand-item" href="/">
-                              <img class="img-fluid" alt="Lenovo" src="https://s3n.cashify.in/cashify/brand/img/xhdpi/4834825a-7f10.jpg" />
-                            </a>
-                            <a class="align-items-center justify-content-center top-brand-item" href="/">
-                              <img class="img-fluid" alt="More" src={moreImage} />
-                            </a>
-                          </div>
-                          <div className="mb-2">
-                            <h2 className="me-auto mt-3 mb-2">TOP SELLING MODELS</h2>
-                            <div className="container p-0">
-                              <div className="row">
-                                <div className="col-md-6 small py-1 text-muted">Xiaomi Redmi Note 4</div>
-                                <div className="col-md-6 small py-1 text-muted">Xiaomi Redmi Note 3</div>
-                              </div>
-                              <div className="row">
-                                <div className="col-md-6 small py-1 text-muted">Apple iPhone 6</div>
-                                <div className="col-md-6 small py-1 text-muted">Redmi Note 4</div>
-                              </div>
+                        <div className="row m-0">
+                          <a className="align-items-center justify-content-center top-brand-item" href="/">
+                            <img className="img-fluid" alt="Apple" src="https://s3n.cashify.in/cashify/brand/img/xhdpi/1071214e-b44f.jpg" />
+                          </a>
+                          <a className="align-items-center justify-content-center top-brand-item" href="/">
+                            <img class="img-fluid" alt="Xiaomi" src="https://s3n.cashify.in/cashify/brand/img/xhdpi/cb96df6e-080f.jpg" />
+                          </a>
+                          <a class="align-items-center justify-content-center top-brand-item" href="/">
+                            <img class="img-fluid" alt="Samsung" src="https://s3n.cashify.in/cashify/brand/img/xhdpi/406a512d-e8dd.jpg" />
+                          </a>
+                          <a class="align-items-center justify-content-center top-brand-item" href="/">
+                            <img class="img-fluid" alt="Vivo" src="https://s3n.cashify.in/cashify/brand/img/xhdpi/20922c34-8afc.jpg" />
+                          </a>
+                          <a class="align-items-center justify-content-center top-brand-item" href="/">
+                            <img class="img-fluid" alt="OnePlus" src="https://s3n.cashify.in/cashify/brand/img/xhdpi/5f6b4d6f-57a9.jpg" />
+                          </a>
+                          <a class="align-items-center justify-content-center top-brand-item" href="/">
+                            <img class="img-fluid" alt="OPPO" src="https://s3n.cashify.in/cashify/brand/img/xhdpi/ac5c9a7b-76b5.jpg" />
+                          </a>
+                          <a class="align-items-center justify-content-center top-brand-item" href="/">
+                            <img class="img-fluid" alt="Realme" src="https://s3n.cashify.in/cashify/brand/img/xhdpi/0124cc45-3a6c.jpg" />
+                          </a>
+                          <a class="align-items-center justify-content-center top-brand-item" href="/">
+                            <img class="img-fluid" alt="Motorola" src="https://s3n.cashify.in/cashify/brand/img/xhdpi/1dcd7fda-0141.jpg" />
+                          </a>
+                          <a class="align-items-center justify-content-center top-brand-item" href="/">
+                            <img class="img-fluid" alt="Lenovo" src="https://s3n.cashify.in/cashify/brand/img/xhdpi/4834825a-7f10.jpg" />
+                          </a>
+                          <a class="align-items-center justify-content-center top-brand-item" href="/">
+                            <img class="img-fluid" alt="More" src={moreImage} />
+                          </a>
+                        </div>
+                        <div className="mt-4 mb-2">
+                          <h2 className="me-auto mb-2">TOP SELLING MODELS</h2>
+                          <div className="container p-0">
+                            <div className="row">
+                              <div className="col-md-6 small py-1 text-muted">Xiaomi Redmi Note 4</div>
+                              <div className="col-md-6 small py-1 text-muted">Xiaomi Redmi Note 3</div>
+                            </div>
+                            <div className="row">
+                              <div className="col-md-6 small py-1 text-muted">Apple iPhone 6</div>
+                              <div className="col-md-6 small py-1 text-muted">Redmi Note 4</div>
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
                   </li>
-                  <li className="nav-item">
-                    <a className="nav-link text-capitalize" href="repair">Repair Phone</a>
+                  <li className="nav-item dropdown">
+                    <a className="dropdown-toggle nav-link" href="#" target="_blank" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                      aria-haspopup="true" aria-expanded="false">Repair Phone</a>
+                    <div className="dropdown-menu mega-menu" aria-labelledby="dropdownMenuLink">
+                      <div class="container">
+                        <div className="d-sm-flex mb-2 mt-4">
+                          <h2 className="me-auto">Top Brands</h2>
+                          <a className="ms-auto allbrands">View All Brands</a>
+                        </div>
+                        <div className="row m-0">
+                          <a className="align-items-center justify-content-center top-brand-item" href="/">
+                            <img className="img-fluid" alt="Apple" src="https://s3n.cashify.in/cashify/brand/img/xhdpi/1071214e-b44f.jpg" />
+                          </a>
+                          <a className="align-items-center justify-content-center top-brand-item" href="/">
+                            <img class="img-fluid" alt="Xiaomi" src="https://s3n.cashify.in/cashify/brand/img/xhdpi/cb96df6e-080f.jpg" />
+                          </a>
+                          <a class="align-items-center justify-content-center top-brand-item" href="/">
+                            <img class="img-fluid" alt="Samsung" src="https://s3n.cashify.in/cashify/brand/img/xhdpi/406a512d-e8dd.jpg" />
+                          </a>
+                          <a class="align-items-center justify-content-center top-brand-item" href="/">
+                            <img class="img-fluid" alt="Vivo" src="https://s3n.cashify.in/cashify/brand/img/xhdpi/20922c34-8afc.jpg" />
+                          </a>
+                          <a class="align-items-center justify-content-center top-brand-item" href="/">
+                            <img class="img-fluid" alt="OnePlus" src="https://s3n.cashify.in/cashify/brand/img/xhdpi/5f6b4d6f-57a9.jpg" />
+                          </a>
+                          <a class="align-items-center justify-content-center top-brand-item" href="/">
+                            <img class="img-fluid" alt="OPPO" src="https://s3n.cashify.in/cashify/brand/img/xhdpi/ac5c9a7b-76b5.jpg" />
+                          </a>
+                          <a class="align-items-center justify-content-center top-brand-item" href="/">
+                            <img class="img-fluid" alt="Realme" src="https://s3n.cashify.in/cashify/brand/img/xhdpi/0124cc45-3a6c.jpg" />
+                          </a>
+                          <a class="align-items-center justify-content-center top-brand-item" href="/">
+                            <img class="img-fluid" alt="Motorola" src="https://s3n.cashify.in/cashify/brand/img/xhdpi/1dcd7fda-0141.jpg" />
+                          </a>
+                          <a class="align-items-center justify-content-center top-brand-item" href="/">
+                            <img class="img-fluid" alt="Lenovo" src="https://s3n.cashify.in/cashify/brand/img/xhdpi/4834825a-7f10.jpg" />
+                          </a>
+                          <a class="align-items-center justify-content-center top-brand-item" href="/">
+                            <img class="img-fluid" alt="More" src={moreImage} />
+                          </a>
+                        </div>
+                        <div className="mt-4 mb-2">
+                          <h2 className="me-auto mb-2">TOP SELLING MODELS</h2>
+                          <div className="container p-0">
+                            <div className="row">
+                              <div className="col-md-6 small py-1 text-muted">Xiaomi Redmi Note 4</div>
+                              <div className="col-md-6 small py-1 text-muted">Xiaomi Redmi Note 3</div>
+                            </div>
+                            <div className="row">
+                              <div className="col-md-6 small py-1 text-muted">Apple iPhone 6</div>
+                              <div className="col-md-6 small py-1 text-muted">Redmi Note 4</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </li>
-                  <li className="nav-item">
-                    <a className="nav-link text-capitalize"
-                      href="https://www.store.buybackart.com/index.php?route=product/category&amp;path=99" target="_blank">Buy
-                      Refurbish Phone</a>
+                  <li className="nav-item dropdown">
+                    <a className="dropdown-toggle nav-link" href="https://www.store.buybackart.com/index.php?route=product/category&amp;path=99" target="_blank" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                      aria-haspopup="true" aria-expanded="false">Buy</a>
+                    <div className="dropdown-menu mega-menu" aria-labelledby="dropdownMenuLink">
+                      <div class="container">
+                        <div className="d-sm-flex mb-2 mt-4">
+                          <h2 className="me-auto">Top Brands</h2>
+                          <a className="ms-auto allbrands">View All Brands</a>
+                        </div>
+                        <div className="row m-0">
+                          <a className="align-items-center justify-content-center top-brand-item" href="/">
+                            <img className="img-fluid" alt="Apple" src="https://s3n.cashify.in/cashify/brand/img/xhdpi/1071214e-b44f.jpg" />
+                          </a>
+                          <a className="align-items-center justify-content-center top-brand-item" href="/">
+                            <img class="img-fluid" alt="Xiaomi" src="https://s3n.cashify.in/cashify/brand/img/xhdpi/cb96df6e-080f.jpg" />
+                          </a>
+                          <a class="align-items-center justify-content-center top-brand-item" href="/">
+                            <img class="img-fluid" alt="Samsung" src="https://s3n.cashify.in/cashify/brand/img/xhdpi/406a512d-e8dd.jpg" />
+                          </a>
+                          <a class="align-items-center justify-content-center top-brand-item" href="/">
+                            <img class="img-fluid" alt="Vivo" src="https://s3n.cashify.in/cashify/brand/img/xhdpi/20922c34-8afc.jpg" />
+                          </a>
+                          <a class="align-items-center justify-content-center top-brand-item" href="/">
+                            <img class="img-fluid" alt="OnePlus" src="https://s3n.cashify.in/cashify/brand/img/xhdpi/5f6b4d6f-57a9.jpg" />
+                          </a>
+                          <a class="align-items-center justify-content-center top-brand-item" href="/">
+                            <img class="img-fluid" alt="OPPO" src="https://s3n.cashify.in/cashify/brand/img/xhdpi/ac5c9a7b-76b5.jpg" />
+                          </a>
+                          <a class="align-items-center justify-content-center top-brand-item" href="/">
+                            <img class="img-fluid" alt="Realme" src="https://s3n.cashify.in/cashify/brand/img/xhdpi/0124cc45-3a6c.jpg" />
+                          </a>
+                          <a class="align-items-center justify-content-center top-brand-item" href="/">
+                            <img class="img-fluid" alt="Motorola" src="https://s3n.cashify.in/cashify/brand/img/xhdpi/1dcd7fda-0141.jpg" />
+                          </a>
+                          <a class="align-items-center justify-content-center top-brand-item" href="/">
+                            <img class="img-fluid" alt="Lenovo" src="https://s3n.cashify.in/cashify/brand/img/xhdpi/4834825a-7f10.jpg" />
+                          </a>
+                          <a class="align-items-center justify-content-center top-brand-item" href="/">
+                            <img class="img-fluid" alt="More" src={moreImage} />
+                          </a>
+                        </div>
+                        <div className="mt-4 mb-2">
+                          <h2 className="me-auto mb-2">TOP SELLING MODELS</h2>
+                          <div className="container p-0">
+                            <div className="row">
+                              <div className="col-md-6 small py-1 text-muted">Xiaomi Redmi Note 4</div>
+                              <div className="col-md-6 small py-1 text-muted">Xiaomi Redmi Note 3</div>
+                            </div>
+                            <div className="row">
+                              <div className="col-md-6 small py-1 text-muted">Apple iPhone 6</div>
+                              <div className="col-md-6 small py-1 text-muted">Redmi Note 4</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </li>
-                  <li className="nav-item">
-                    <a className="nav-link text-capitalize"
-                      href="https://www.store.buybackart.com/index.php?route=product/category&amp;path=64" target="_blank">Buy
-                      Accessories</a>
+                  <li className="nav-item dropdown right">
+                    <a className="dropdown-toggle nav-link" href="https://www.store.buybackart.com/index.php?route=product/category&amp;path=64" target="_blank" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                      aria-haspopup="true" aria-expanded="false">Buy Accessories</a>
+                    <div className="dropdown-menu mega-menu" aria-labelledby="dropdownMenuLink">
+                      <div class="container">
+                        <div className="d-sm-flex mb-2 mt-4">
+                          <h2 className="me-auto">Top Brands</h2>
+                          <a className="ms-auto allbrands">View All Brands</a>
+                        </div>
+                        <div className="row m-0">
+                          <a className="align-items-center justify-content-center top-brand-item" href="/">
+                            <img className="img-fluid" alt="Apple" src="https://s3n.cashify.in/cashify/brand/img/xhdpi/1071214e-b44f.jpg" />
+                          </a>
+                          <a className="align-items-center justify-content-center top-brand-item" href="/">
+                            <img class="img-fluid" alt="Xiaomi" src="https://s3n.cashify.in/cashify/brand/img/xhdpi/cb96df6e-080f.jpg" />
+                          </a>
+                          <a class="align-items-center justify-content-center top-brand-item" href="/">
+                            <img class="img-fluid" alt="Samsung" src="https://s3n.cashify.in/cashify/brand/img/xhdpi/406a512d-e8dd.jpg" />
+                          </a>
+                          <a class="align-items-center justify-content-center top-brand-item" href="/">
+                            <img class="img-fluid" alt="Vivo" src="https://s3n.cashify.in/cashify/brand/img/xhdpi/20922c34-8afc.jpg" />
+                          </a>
+                          <a class="align-items-center justify-content-center top-brand-item" href="/">
+                            <img class="img-fluid" alt="OnePlus" src="https://s3n.cashify.in/cashify/brand/img/xhdpi/5f6b4d6f-57a9.jpg" />
+                          </a>
+                          <a class="align-items-center justify-content-center top-brand-item" href="/">
+                            <img class="img-fluid" alt="OPPO" src="https://s3n.cashify.in/cashify/brand/img/xhdpi/ac5c9a7b-76b5.jpg" />
+                          </a>
+                          <a class="align-items-center justify-content-center top-brand-item" href="/">
+                            <img class="img-fluid" alt="Realme" src="https://s3n.cashify.in/cashify/brand/img/xhdpi/0124cc45-3a6c.jpg" />
+                          </a>
+                          <a class="align-items-center justify-content-center top-brand-item" href="/">
+                            <img class="img-fluid" alt="Motorola" src="https://s3n.cashify.in/cashify/brand/img/xhdpi/1dcd7fda-0141.jpg" />
+                          </a>
+                          <a class="align-items-center justify-content-center top-brand-item" href="/">
+                            <img class="img-fluid" alt="Lenovo" src="https://s3n.cashify.in/cashify/brand/img/xhdpi/4834825a-7f10.jpg" />
+                          </a>
+                          <a class="align-items-center justify-content-center top-brand-item" href="/">
+                            <img class="img-fluid" alt="More" src={moreImage} />
+                          </a>
+                        </div>
+                        <div className="mt-4 mb-2">
+                          <h2 className="me-auto mb-2">TOP SELLING MODELS</h2>
+                          <div className="container p-0">
+                            <div className="row">
+                              <div className="col-md-6 small py-1 text-muted">Xiaomi Redmi Note 4</div>
+                              <div className="col-md-6 small py-1 text-muted">Xiaomi Redmi Note 3</div>
+                            </div>
+                            <div className="row">
+                              <div className="col-md-6 small py-1 text-muted">Apple iPhone 6</div>
+                              <div className="col-md-6 small py-1 text-muted">Redmi Note 4</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </li>
-                  <li className="nav-item">
-                    <a className="nav-link text-capitalize"
+                  <li className="nav-item dropdown right">
+                    <a className="dropdown-toggle nav-link text-capitalize"
                       href="https://www.store.buybackart.com/index.php?route=product/category&amp;path=24" target="_blank">Buy
                       New Smartphones</a>
+                    <div className="dropdown-menu mega-menu" aria-labelledby="dropdownMenuLink">
+                      <div class="container">
+                        <div className="d-sm-flex mb-2 mt-4">
+                          <h2 className="me-auto">Top Brands</h2>
+                          <a className="ms-auto allbrands">View All Brands</a>
+                        </div>
+                        <div className="row m-0">
+                          <a className="align-items-center justify-content-center top-brand-item" href="/">
+                            <img className="img-fluid" alt="Apple" src="https://s3n.cashify.in/cashify/brand/img/xhdpi/1071214e-b44f.jpg" />
+                          </a>
+                          <a className="align-items-center justify-content-center top-brand-item" href="/">
+                            <img class="img-fluid" alt="Xiaomi" src="https://s3n.cashify.in/cashify/brand/img/xhdpi/cb96df6e-080f.jpg" />
+                          </a>
+                          <a class="align-items-center justify-content-center top-brand-item" href="/">
+                            <img class="img-fluid" alt="Samsung" src="https://s3n.cashify.in/cashify/brand/img/xhdpi/406a512d-e8dd.jpg" />
+                          </a>
+                          <a class="align-items-center justify-content-center top-brand-item" href="/">
+                            <img class="img-fluid" alt="Vivo" src="https://s3n.cashify.in/cashify/brand/img/xhdpi/20922c34-8afc.jpg" />
+                          </a>
+                          <a class="align-items-center justify-content-center top-brand-item" href="/">
+                            <img class="img-fluid" alt="OnePlus" src="https://s3n.cashify.in/cashify/brand/img/xhdpi/5f6b4d6f-57a9.jpg" />
+                          </a>
+                          <a class="align-items-center justify-content-center top-brand-item" href="/">
+                            <img class="img-fluid" alt="OPPO" src="https://s3n.cashify.in/cashify/brand/img/xhdpi/ac5c9a7b-76b5.jpg" />
+                          </a>
+                          <a class="align-items-center justify-content-center top-brand-item" href="/">
+                            <img class="img-fluid" alt="Realme" src="https://s3n.cashify.in/cashify/brand/img/xhdpi/0124cc45-3a6c.jpg" />
+                          </a>
+                          <a class="align-items-center justify-content-center top-brand-item" href="/">
+                            <img class="img-fluid" alt="Motorola" src="https://s3n.cashify.in/cashify/brand/img/xhdpi/1dcd7fda-0141.jpg" />
+                          </a>
+                          <a class="align-items-center justify-content-center top-brand-item" href="/">
+                            <img class="img-fluid" alt="Lenovo" src="https://s3n.cashify.in/cashify/brand/img/xhdpi/4834825a-7f10.jpg" />
+                          </a>
+                          <a class="align-items-center justify-content-center top-brand-item" href="/">
+                            <img class="img-fluid" alt="More" src={moreImage} />
+                          </a>
+                        </div>
+                        <div className="mt-4 mb-2">
+                          <h2 className="me-auto mb-2">TOP SELLING MODELS</h2>
+                          <div className="container p-0">
+                            <div className="row">
+                              <div className="col-md-6 small py-1 text-muted">Xiaomi Redmi Note 4</div>
+                              <div className="col-md-6 small py-1 text-muted">Xiaomi Redmi Note 3</div>
+                            </div>
+                            <div className="row">
+                              <div className="col-md-6 small py-1 text-muted">Apple iPhone 6</div>
+                              <div className="col-md-6 small py-1 text-muted">Redmi Note 4</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </li>
-                  <li className="nav-item">
-                    <a className="nav-link text-capitalize" href="https://buybackart.com/offers">
+                  <li className="nav-item dropdown right">
+                    <a className="dropdown-toggle nav-link text-capitalize" href="https://buybackart.com/offers">
                       <img src={offer} className="img-fluid" alt="offer" width="21" height="21" /> Offers
                     </a>
+                    <div className="dropdown-menu mega-menu" aria-labelledby="dropdownMenuLink">
+                      <div class="container">
+                        <div className="d-sm-flex mb-2 mt-4">
+                          <h2 className="me-auto">Top Brands</h2>
+                          <a className="ms-auto allbrands">View All Brands</a>
+                        </div>
+                        <div className="row m-0">
+                          <a className="align-items-center justify-content-center top-brand-item" href="/">
+                            <img className="img-fluid" alt="Apple" src="https://s3n.cashify.in/cashify/brand/img/xhdpi/1071214e-b44f.jpg" />
+                          </a>
+                          <a className="align-items-center justify-content-center top-brand-item" href="/">
+                            <img class="img-fluid" alt="Xiaomi" src="https://s3n.cashify.in/cashify/brand/img/xhdpi/cb96df6e-080f.jpg" />
+                          </a>
+                          <a class="align-items-center justify-content-center top-brand-item" href="/">
+                            <img class="img-fluid" alt="Samsung" src="https://s3n.cashify.in/cashify/brand/img/xhdpi/406a512d-e8dd.jpg" />
+                          </a>
+                          <a class="align-items-center justify-content-center top-brand-item" href="/">
+                            <img class="img-fluid" alt="Vivo" src="https://s3n.cashify.in/cashify/brand/img/xhdpi/20922c34-8afc.jpg" />
+                          </a>
+                          <a class="align-items-center justify-content-center top-brand-item" href="/">
+                            <img class="img-fluid" alt="OnePlus" src="https://s3n.cashify.in/cashify/brand/img/xhdpi/5f6b4d6f-57a9.jpg" />
+                          </a>
+                          <a class="align-items-center justify-content-center top-brand-item" href="/">
+                            <img class="img-fluid" alt="OPPO" src="https://s3n.cashify.in/cashify/brand/img/xhdpi/ac5c9a7b-76b5.jpg" />
+                          </a>
+                          <a class="align-items-center justify-content-center top-brand-item" href="/">
+                            <img class="img-fluid" alt="Realme" src="https://s3n.cashify.in/cashify/brand/img/xhdpi/0124cc45-3a6c.jpg" />
+                          </a>
+                          <a class="align-items-center justify-content-center top-brand-item" href="/">
+                            <img class="img-fluid" alt="Motorola" src="https://s3n.cashify.in/cashify/brand/img/xhdpi/1dcd7fda-0141.jpg" />
+                          </a>
+                          <a class="align-items-center justify-content-center top-brand-item" href="/">
+                            <img class="img-fluid" alt="Lenovo" src="https://s3n.cashify.in/cashify/brand/img/xhdpi/4834825a-7f10.jpg" />
+                          </a>
+                          <a class="align-items-center justify-content-center top-brand-item" href="/">
+                            <img class="img-fluid" alt="More" src={moreImage} />
+                          </a>
+                        </div>
+                        <div className="mt-4 mb-2">
+                          <h2 className="me-auto mb-2">TOP SELLING MODELS</h2>
+                          <div className="container p-0">
+                            <div className="row">
+                              <div className="col-md-6 small py-1 text-muted">Xiaomi Redmi Note 4</div>
+                              <div className="col-md-6 small py-1 text-muted">Xiaomi Redmi Note 3</div>
+                            </div>
+                            <div className="row">
+                              <div className="col-md-6 small py-1 text-muted">Apple iPhone 6</div>
+                              <div className="col-md-6 small py-1 text-muted">Redmi Note 4</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </li>
                 </ul>
               </div>
@@ -251,76 +493,78 @@ function App() {
           </div>
         </div>
       </header>
-      {/* banner */}
-      <Carousel
-        responsive={singleItem}
-        swipeable={true}
-        draggable={true}
-        showDots={false}
-        infinite={true}
-        containerClass="banner__carousel"
-      >
-        <img src={banner} className="img-fluid" />
-        <img src={banner1} className="img-fluid" />
-        <img src={banner2} className="img-fluid" />
-      </Carousel>
-      {/* explore here */}
-      <section className="container py-3 explore d-flex flex-column">
-        <div className="row d-flex justify-content-center">
-          <h2 className="main_heading">Explore Here</h2>
-        </div>
-        <div className="row">
-          <div className="col-lg-3 col-md-3 col-6 d-flex justify-content-center explore__box">
-            <a href="https://buybackart.com/sell_phone">
-              <img src={sellPhone} alt="sell-phone" className="img-fluid" />
-              <span>Sell phone</span>
-            </a>
+      <div className="d-lg-flex">
+        {/* banner */}
+        <Carousel
+          responsive={singleItem}
+          swipeable={true}
+          draggable={true}
+          showDots={false}
+          infinite={true}
+          containerClass="banner__carousel"
+        >
+          <img src={banner} className="img-fluid" />
+          <img src={banner1} className="img-fluid" />
+          <img src={banner2} className="img-fluid" />
+        </Carousel>
+        {/* explore here */}
+        <section className="container py-3 explore d-flex flex-column">
+          {/* <div className="row d-flex justify-content-center">
+            <h2 className="main_heading">Explore Here</h2>
+          </div> */}
+          <div className="row">
+            <div className="col-lg-6 col-md-6 col-6 d-flex justify-content-center explore__box">
+              <a href="https://buybackart.com/sell_phone">
+                <img src={sellPhone} alt="sell-phone" className="img-fluid" />
+                <span>Sell phone</span>
+              </a>
+            </div>
+            <div className="col-lg-6 col-md-6 col-6 d-flex justify-content-center explore__box">
+              <a href="https://buybackart.com/repair">
+                <img src={repairPhone} alt="repair-phone" className="img-fluid" />
+                <span>Repair phone</span>
+              </a>
+            </div>
+            {/* <div className="col-lg-6 col-md-6 col-6 d-flex justify-content-center explore__box">
+              <a href="https://buybackart.com/sell_apple_ipad">
+                <img src={sellIpad} alt="sell-ipad" className="img-fluid" />
+                <span>Sell ipad</span>
+              </a>
+            </div>
+            <div className="col-lg-6 col-md-6 col-6 d-flex justify-content-center explore__box">
+              <a href="https://buybackart.com/sell_tablet">
+                <img src={sellTablet} alt="sell-tablets" className="img-fluid" />
+                <span>Sell tablet</span>
+              </a>
+            </div> */}
+            <div className="col-lg-6 col-md-6 col-6 d-flex justify-content-center explore__box">
+              <a href="https://buybackart.com/sell_apple_macbook">
+                <img src={sellMacbook} alt="sell-macbook" className="img-fluid" />
+                <span>Sell macbook</span>
+              </a>
+            </div>
+            <div className="col-lg-6 col-md-6 col-6 d-flex justify-content-center explore__box">
+              <a href="https://buybackart.com/sell_laptop">
+                <img src={sellLaptop} alt="sell-laptop" className="img-fluid" />
+                <span>Sell laptop</span>
+              </a>
+            </div>
+            <div className="col-lg-6 col-md-6 col-6 d-flex justify-content-center explore__box">
+              <a href="https://buybackart.com/sell_phone">
+                <img src={sellPhone} alt="sell-phone" className="img-fluid" />
+                <span>Sell phone</span>
+              </a>
+            </div>
+            <div className="col-lg-6 col-md-6 col-6 img-fluid d-flex justify-content-center explore__box">
+              <a href="https://buybackart.com/sell_apple_imac">
+                <img src={sellImac} alt="sell-imac" />
+                <span>Sell imac</span>
+              </a>
+            </div>
           </div>
-          <div className="col-lg-3 col-md-3 col-6 d-flex justify-content-center explore__box">
-            <a href="https://buybackart.com/repair">
-              <img src={repairPhone} alt="repair-phone" className="img-fluid" />
-              <span>Repair phone</span>
-            </a>
-          </div>
-          <div className="col-lg-3 col-md-3 col-6 d-flex justify-content-center explore__box">
-            <a href="https://buybackart.com/sell_apple_ipad">
-              <img src={sellIpad} alt="sell-ipad" className="img-fluid" />
-              <span>Sell ipad</span>
-            </a>
-          </div>
-          <div className="col-lg-3 col-md-3 col-6 d-flex justify-content-center explore__box">
-            <a href="https://buybackart.com/sell_tablet">
-              <img src={sellTablet} alt="sell-tablets" className="img-fluid" />
-              <span>Sell tablet</span>
-            </a>
-          </div>
-          <div className="col-lg-3 col-md-3 col-6 d-flex justify-content-center explore__box">
-            <a href="https://buybackart.com/sell_apple_macbook">
-              <img src={sellMacbook} alt="sell-macbook" className="img-fluid" />
-              <span>Sell macbook</span>
-            </a>
-          </div>
-          <div className="col-lg-3 col-md-3 col-6 d-flex justify-content-center explore__box">
-            <a href="https://buybackart.com/sell_laptop">
-              <img src={sellLaptop} alt="sell-laptop" className="img-fluid" />
-              <span>Sell laptop</span>
-            </a>
-          </div>
-          <div className="col-lg-3 col-md-3 col-6 d-flex justify-content-center explore__box">
-            <a href="https://buybackart.com/sell_phone">
-              <img src={sellPhone} alt="sell-phone" className="img-fluid" />
-              <span>Sell phone</span>
-            </a>
-          </div>
-          <div className="col-lg-3 col-md-3 col-6 img-fluid d-flex justify-content-center explore__box">
-            <a href="https://buybackart.com/sell_apple_imac">
-              <img src={sellImac} alt="sell-imac" />
-              <span>Sell imac</span>
-            </a>
-          </div>
-        </div>
-      </section>
-      {/* selling made simpler */}
+        </section>
+        {/* selling made simpler */}
+      </div>
       <section className="container-fluid my-5">
         <div className="row px-lg-5">
           <h2 className="main_heading">Selling made simpler</h2>
